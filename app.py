@@ -2,7 +2,7 @@ import requests
 
 
 def main():
-    url = "https://api.github.com/repos/chidomi/"
+    url = "https://api.github.com/repos/chidomi/cloudops-automation"
 
     response = requests.get(url)
 
