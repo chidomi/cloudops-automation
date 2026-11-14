@@ -7,27 +7,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-docker-app:
+  run-python-app:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Build Docker image
-        run: docker build -t cloudops-automation .
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
 
-      - name: Run Docker container
-        run: docker run --name cloudops-container cloudops-automation
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - name: Copy report from container
-        run: docker cp cloudops-container:/app/commit_report.txt ./commit_report.txt
-
-      - name: Remove Docker container
-        run: docker rm cloudops-container
+      - name: Run Python application
+        run: python app.py
 
       - name: Upload commit report
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v
         with:
           name: commit-report
           path: commit_report.txt
