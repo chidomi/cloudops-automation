@@ -18,13 +18,13 @@ jobs:
       - name: Run Docker container
         run: docker run --name cloudops-container cloudops-automation      
 
-      - name: Display working directory and files
+      - name: Show artifact source path
         run: |
-          echo "Current working directory:"
+          echo "Artifact source directory:"
           pwd
-          echo "Files in current directory:"
-          ls -lahn
-
+          echo "Report file location:"
+          ls -l "$PWD/commit_report.txt"
+          
       # - name: Copy report from container
       #   run: docker cp cloudops-container:/app/commit_report.txt ./commit_report.txt
 
