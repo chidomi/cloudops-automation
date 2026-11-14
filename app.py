@@ -1,43 +1,26 @@
-
 import requests
 
 
 def main():
-<<<<<<< HEAD
-    username = "chidomi"
-=======
-    url = "https://api.github.com/repos/chidomi/"
->>>>>>> parent of c1e5832 (Revert "update app.py")
+    url = "https://api.github.com/repos/chidomi/cloudops-automation"
 
-    url = f"https://api.github.com/users/{username}/repos"
-
-    params = {
-        "per_page": 100,
-        "sort": "updated"
-    }
-
-    response = requests.get(url, params=params)
+    response = requests.get(url)
 
     print("GitHub API Status:", response.status_code)
 
     if response.status_code == 200:
-        repositories = response.json()
+        repository = response.json()
 
-        print(f"\nRepositories belonging to {username}")
-        print("--------------------------------------")
-
-        for repo in repositories:
-            print("\nRepository:", repo["name"])
-            print("Description:", repo["description"])
-            print("Language:", repo["language"])
-            print("Stars:", repo["stargazers_count"])
-            print("Last Updated:", repo["updated_at"])
-
-        print(f"\nTotal repositories retrieved: {len(repositories)}")
+        print("\nRepository Information")
+        print("----------------------")
+        print("Name:", repository["name"])
+        print("Description:", repository["description"])
+        print("Stars:", repository["stargazers_count"])
+        print("Forks:", repository["forks_count"])
+        print("Language:", repository["language"])
 
     else:
-        print("Unable to retrieve repositories.")
-        print("Response:", response.text)
+        print("Unable to retrieve repository information.")
 
 
 if __name__ == "__main__":
