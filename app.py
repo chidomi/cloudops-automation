@@ -2,25 +2,33 @@ import requests
 
 
 def main():
-    url = "https://api.github.com/repos/chidomi/cloudops-automation"
+    url = "https://api.github.com/repos/chidomi/cloudops-automation/commits"
 
-    response = requests.get(url)
+    params = {
+        "per_page": 5
+    }
+
+    response = requests.get(url, params=params)
 
     print("GitHub API Status:", response.status_code)
 
     if response.status_code == 200:
-        repository = response.json()
+        commits = response.json()
 
-        print("\nRepository Information")
-        print("----------------------")
-        print("Name:", repository["name"])
-        print("Description:", repository["description"])
-        print("Stars:", repository["stargazers_count"])
-        print("Forks:", repository["forks_count"])
-        print("Language:", repository["language"])
+        print("\nLatest Repository Commits")
+        print("-------------------------")
+
+        for commit in commits:
+            message = commit["commit"]["message"]
+            author = commit["commit"]["author"]["name"]
+            sha = commit["sha"][:7]
+
+            print("\nCommit:", sha)
+            print("Author:", author)
+            print("Message:", message)
 
     else:
-        print("Unable to retrieve repository information.")
+        print("Unable to retrieve commits.")
 
 
 if __name__ == "__main__":
