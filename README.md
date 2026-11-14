@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+# CloudOps Automation
+
+## Project Overview
+...
+=======
+# cloudops-automation
+...
+>>>>>>> ...<<<<<<< HEAD
 # CloudOps Automation
 
 ## Project Overview
@@ -21,3 +30,7 @@ This project demonstrates a hands-on DevOps workflow using Python, GitHub Action
 - Docker
 - Terraform
 - AWS
+=======
+# cloudops-automation
+A hands-on DevOps automation project using Python, GitHub Actions, Docker, Terraform, and AWS.
+>>>>>>> 31c12f8a9e024da562f2ad3ff9488ea79a156988
