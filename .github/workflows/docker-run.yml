@@ -29,5 +29,5 @@ jobs:
       - name: Upload commit report
         uses: actions/upload-artifact@v7
         with:
-          name: report-artifact
+          name: docker-commit-report-artifact
           path: commit_report.txt

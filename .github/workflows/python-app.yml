@@ -26,7 +26,7 @@ jobs:
         run: python app.py
 
       - name: Upload commit report
-        uses: actions/upload-artifact@v
+        uses: actions/upload-artifact@v7
         with:
-          name: commit-report
+          name: py-commit-report-artifact
           path: commit_report.txt
