@@ -16,7 +16,7 @@ jobs:
         run: docker build -t cloudops-automation .
 
       - name: Run Docker container
-        run: docker run --name cloudops-container cloudops-automatio      
+        run: docker run --name cloudops-container cloudops-automation      
 
       - name: Display working directory and files
         run: |
