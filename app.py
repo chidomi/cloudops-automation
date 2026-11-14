@@ -15,17 +15,29 @@ def main():
     if response.status_code == 200:
         commits = response.json()
 
-        print("\nLatest Repository Commits")
-        print("-------------------------")
+        report = []
+
+        report.append("CLOUDOPS AUTOMATION")
+        report.append("Latest Repository Commits")
+        report.append("-------------------------")
 
         for commit in commits:
             message = commit["commit"]["message"]
             author = commit["commit"]["author"]["name"]
             sha = commit["sha"][:7]
 
-            print("\nCommit:", sha)
-            print("Author:", author)
-            print("Message:", message)
+            report.append(f"\nCommit: {sha}")
+            report.append(f"Author: {author}")
+            report.append(f"Message: {message}")
+
+        report_text = "\n".join(report)
+
+        print(report_text)
+
+        with open("commit_report.txt", "w") as file:
+            file.write(report_text)
+
+        print("\nReport successfully generated!")
 
     else:
         print("Unable to retrieve commits.")
