@@ -16,16 +16,23 @@ jobs:
         run: docker build -t cloudops-automation .
 
       - name: Run Docker container
-        run: docker run --name cloudops-container cloudops-automation
+        run: docker run --name cloudops-container cloudops-automatio      
 
-      - name: Copy report from container
-        run: docker cp cloudops-container:/app/commit_report.txt ./commit_report.txt
+      - name: Display working directory and files
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "Files in current directory:"
+          ls -lahn
 
-      - name: Remove Docker container
-        run: docker rm cloudops-container
+      # - name: Copy report from container
+      #   run: docker cp cloudops-container:/app/commit_report.txt ./commit_report.txt
 
-      - name: Upload commit report
-        uses: actions/upload-artifact@v7
-        with:
-          name: docker-commit-report-artifact
-          path: ./*
+      # - name: Remove Docker container
+      #   run: docker rm cloudops-container
+
+      # - name: Upload commit report
+      #   uses: actions/upload-artifact@v7
+      #   with:
+      #     name: docker-commit-report-artifact
+      #     path: ./*
