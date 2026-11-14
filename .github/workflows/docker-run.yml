@@ -14,7 +14,7 @@ jobs:
 
       - name: runner repo checkout  
         run: |
-          echo: "runner directory"
+          echo "runner directory"
           pwd
           ls -lah
 
