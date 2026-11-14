@@ -3,7 +3,11 @@ import requests
 
 
 def main():
+<<<<<<< HEAD
     username = "chidomi"
+=======
+    url = "https://api.github.com/repos/chidomi/"
+>>>>>>> parent of c1e5832 (Revert "update app.py")
 
     url = f"https://api.github.com/users/{username}/repos"
 
