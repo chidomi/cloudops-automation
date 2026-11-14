@@ -12,6 +12,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: runner repo checkout  
+        run: |
+          echo: "runner directory"
+          pwd
+          ls -lah
+
       - name: Build Docker image
         run: docker build -t cloudops-automation .
 
