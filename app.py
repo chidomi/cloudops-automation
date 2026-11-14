@@ -1,5 +1,5 @@
 import requests
-
+from datetime import datetime
 
 def main():
     url = "https://api.github.com/repos/chidomi/cloudops-automation/commits"
@@ -14,10 +14,12 @@ def main():
 
     if response.status_code == 200:
         commits = response.json()
+        generated_at = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %Z")
 
         report = []
 
         report.append("CLOUDOPS AUTOMATION")
+        report.append(f"Generated: {generated_at}")
         report.append("Latest Repository Commits")
         report.append("-------------------------")
 

@@ -1,0 +1,25 @@
+CLOUDOPS AUTOMATION
+Latest Repository Commits
+-------------------------
+
+Commit: d30c9fb
+Author: Chidomi
+Message: update app.py
+
+Commit: ab5512c
+Author: Chidomi
+Message: app update
+
+Commit: ab0e239
+Author: Chidomi
+Message: roll back to c1e5832f8fc0de7b212fbf070550bb4669dfd83e
+
+Commit: e689287
+Author: Chidomi
+Message: Reapply "update app.py"
+
+This reverts commit c1e5832f8fc0de7b212fbf070550bb4669dfd83e.
+
+Commit: 1c358f4
+Author: Chidomi
+Message: app
