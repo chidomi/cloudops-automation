@@ -1,9 +1,7 @@
 name: CloudOps Automation
 
 on:
-  push:
-    branches:
-      - main
+
   workflow_dispatch:
 
 jobs:
